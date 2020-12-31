@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/mpuig/turtlebot3_pc_ws/install/setup.sh

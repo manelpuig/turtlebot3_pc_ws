@@ -1,0 +1,8 @@
+prefix=/home/mpuig/turtlebot3_pc_ws/devel
+
+Name: autonomous_robots
+Description: Description of autonomous_robots
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

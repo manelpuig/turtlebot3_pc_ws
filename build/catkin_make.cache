@@ -1,0 +1,2 @@
+autonomous_robots
+-DCATKIN_DEVEL_PREFIX=/home/mpuig/turtlebot3_pc_ws/devel -DCMAKE_INSTALL_PREFIX=/home/mpuig/turtlebot3_pc_ws/install -G Unix Makefiles
