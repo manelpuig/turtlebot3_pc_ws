@@ -10,26 +10,25 @@ def movebase_client():
     client = actionlib.SimpleActionClient('move_base',MoveBaseAction)
     client.wait_for_server()
     # Sequence
-    goal_seq=[1.8878 , 0.031  , -0.001,
-              3.5923 , -1.200 , -0.0010,
-              1.4576 , -2.878 , -0.001,
-              -1.000 , -2.623 ,-0.0010,
-              0.0029 , 0.0040 , -0.001] # at the end get back to where it was parked :)
+    goal_seq=[0 , 0.9  , -0.001,
+              1 , 0 , -0.0010,
+              0 , 0 ,-0.0010,
+              1 , 1 , -0.001] # at the end get back to where it was parked :)
 
     goal = MoveBaseGoal()
     goal.target_pose.header.frame_id = "map"
     goal.target_pose.header.stamp = rospy.Time.now()
 
     # Looping in sequence
-    for i in range(0,5):
+    for i in range(0,3):
         goal = MoveBaseGoal()
         goal.target_pose.header.frame_id = "map"
         goal.target_pose.header.stamp = rospy.Time.now()
         goal.target_pose.pose.position.x = goal_seq[0+i*3]
         goal.target_pose.pose.position.y = goal_seq[1+i*3]
         goal.target_pose.pose.position.z = goal_seq[2+i*3]
-        goal.target_pose.pose.orientation.w = 0.09012465928 # fixed angles
-        goal.target_pose.pose.orientation.z = 0.098917586 # of robot position for all goals
+        goal.target_pose.pose.orientation.w = 0 # fixed angles
+        goal.target_pose.pose.orientation.z = 1 # of robot position for all goals
 
         client.send_goal(goal)
         wait = client.wait_for_result()
